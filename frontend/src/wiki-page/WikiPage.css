@@ -1,0 +1,36 @@
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  width: 100%;
+}
+
+.contents {
+  font-size: 1em;
+  width: 100%;
+}
+
+.wiki-body {
+  position: relative;
+}
+
+.switch-enter {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+}
+
+.switch-enter.switch-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.switch-leave {
+  position: absolute;
+  opacity: 1;
+}
+
+.switch-leave.switch-leave-active {
+  width: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}

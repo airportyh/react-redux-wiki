@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 50px;
+  font-family: sans-serif;
+}
+
+ul.nav {
+  list-style: none;
+  padding: 0;
+}
+
+ul.nav li {
+  list-style: none;
+  float: left;
+  padding: 5px;
+}
+
+ul.nav:before,
+ul.nav:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+ul.nav:after {
+    clear: both;
+}
+
+a.active {
+  color: red;
+}

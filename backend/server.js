@@ -5,6 +5,7 @@ const pgp = require('pg-promise')();
 const db = pgp({
   database: 'wiki_db'
 });
+const bcrypt = require('bcrypt');
 
 const app = express();
 app.use(bodyParser.json());
@@ -46,6 +47,19 @@ app.put('/api/page/:title', (req, resp, next) => {
     returning *
     `, [title, content])
     .then(page => resp.json(page))
+    .catch(next);
+});
+
+app.post('/api/signup', (req, resp, next) => {
+  let data = req.body;
+  bcrypt.hash(data.password, 10)
+    .then((encryptedPassword) =>
+      db.one(`
+        insert into author values (default, $1, $2)
+        returning id, name
+        `, [data.name, encryptedPassword])
+    )
+    .then(author => resp.json(author))
     .catch(next);
 });
 

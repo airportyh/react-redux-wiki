@@ -4,3 +4,14 @@ CREATE TABLE page (
   time_modified timestamp,
   time_created timestamp default now()
 );
+
+CREATE TABLE author (
+  id serial PRIMARY KEY,
+  name varchar NOT NULL UNIQUE,
+  password varchar NOT NULL
+);
+
+CREATE TABLE login_sessions (
+  author_id integer references author (id),
+  auth_token varchar
+);

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-const BASE_URL = location.hostname === 'localhost' ? 'http://localhost:4000': '';
+import BASEURL from '../baseurl';
 
 export function toggleEdit() {
   return { type: 'toggle-edit' };

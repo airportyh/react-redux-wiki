@@ -11,7 +11,8 @@ CREATE TABLE author (
   password varchar NOT NULL
 );
 
-CREATE TABLE login_sessions (
+CREATE TABLE login_session (
   author_id integer references author (id),
-  auth_token varchar
+  auth_token varchar,
+  expires timestamp DEFAULT now() + interval '30 days'
 );

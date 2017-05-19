@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const bluebird = require('bluebird')
+const bluebird = require('bluebird');
+const config = require('./config');
 const pgp = require('pg-promise')({
   promiseLib: bluebird
 });

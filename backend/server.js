@@ -6,9 +6,7 @@ const pgp = require('pg-promise')({
   promiseLib: bluebird
 });
 const uuid = require('uuid');
-const db = pgp({
-  database: 'wiki_db'
-});
+const db = pgp(config);
 const bcrypt = require('bcrypt');
 
 const app = express();

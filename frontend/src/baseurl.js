@@ -1,5 +1,5 @@
 let BASEURL = 'http://localhost:4000';
-if (location.hostname !== 'localhost') {
+if (window.location.hostname !== 'localhost') {
   BASEURL = '';
 }
 

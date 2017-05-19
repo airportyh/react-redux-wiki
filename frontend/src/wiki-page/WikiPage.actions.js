@@ -13,7 +13,7 @@ export function updatePage(title, newContents) {
   return function(dispatch) {
     $.post({
       method: 'PUT',
-      url: `${BASE_URL}/api/page/${title}`,
+      url: `${BASEURL}/api/page/${title}`,
       data: JSON.stringify({ content: newContents }),
       contentType: 'application/json'
     })
@@ -24,7 +24,7 @@ export function updatePage(title, newContents) {
 export function fetchPage(title) {
   return function(dispatch) {
     dispatch({ type: 'fetch-page-start', title: title });
-    $.get(`${BASE_URL}/api/page/${title}`)
+    $.get(`${BASEURL}/api/page/${title}`)
       .then(page => dispatch(updateContents(page.content)))
       .catch(err => dispatch({ type: 'error', error: err }));
   };
